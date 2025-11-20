@@ -1,3 +1,154 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A stunning mountain landscape at sunrise for the hero section.",
+      "imageUrl": "https://images.unsplash.com/photo-1506880648420-aafaa650d147?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb3VudGFpbiUyMHN1bnJpc2V8ZW58MHx8fHwxNzYzNDY4MTE2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mountain sunrise"
+    },
+    {
+      "id": "event-hiking",
+      "description": "A group of friends hiking on a sunny day.",
+      "imageUrl": "https://images.unsplash.com/photo-1578592391689-0e3d1a1b52b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxncm91cCUyMGhpa2luZ3xlbnwwfHx8fDE3NjM0NTExMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "group hiking"
+    },
+    {
+      "id": "event-marathon",
+      "description": "Runners at the starting line of a city marathon.",
+      "imageUrl": "https://images.unsplash.com/photo-1519703936-c4a3b3eb88e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYXJhdGhvbiUyMHJ1bm5lcnN8ZW58MHx8fHwxNzYzNDYxMjk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "marathon runners"
+    },
+    {
+      "id": "event-cycling",
+      "description": "A cyclist riding on a scenic mountain road.",
+      "imageUrl": "https://images.unsplash.com/photo-1690957388018-f7f45098f659?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjeWNsaXN0JTIwbW91bnRhaW58ZW58MHx8fHwxNzYzNTQ2NTY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cyclist mountain"
+    },
+    {
+      "id": "event-climbing",
+      "description": "A person rock climbing a steep cliff.",
+      "imageUrl": "https://images.unsplash.com/photo-1597698063932-9450882bb1be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyb2NrJTIwY2xpbWJpbmd8ZW58MHx8fHwxNzYzNDk0NDk0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rock climbing"
+    },
+    {
+      "id": "event-impact",
+      "description": "Volunteers planting trees in a community park.",
+      "imageUrl": "https://images.unsplash.com/photo-1758599668360-48ba8ba71b47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx2b2x1bnRlZXJzJTIwcGxhbnRpbmd8ZW58MHx8fHwxNzYzNTQ2NTY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "volunteers planting"
+    },
+    {
+      "id": "event-yoga",
+      "description": "A group of people doing yoga outdoors.",
+      "imageUrl": "https://images.unsplash.com/photo-1607914660217-754fdd90041d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxvdXRkb29yJTIweW9nYXxlbnwwfHx8fDE3NjM0NjY5MDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "outdoor yoga"
+    },
+    {
+      "id": "event-kayaking",
+      "description": "Kayaking on a calm lake.",
+      "imageUrl": "https://images.unsplash.com/photo-1661031023151-d57aa6d2bdfc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxrYXlha2luZyUyMGxha2V8ZW58MHx8fHwxNzYzNTQ2NTY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "kayaking lake"
+    },
+    {
+      "id": "how-it-works-1",
+      "description": "A person browsing events on a laptop.",
+      "imageUrl": "https://images.unsplash.com/photo-1753162657332-31aceacea96b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsYXB0b3AlMjBicm93c2luZ3xlbnwwfHx8fDE3NjM1NDY1Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop browsing"
+    },
+    {
+      "id": "how-it-works-2",
+      "description": "AI chatbot interface on a phone.",
+      "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxBSSUyMGNoYXR8ZW58MHx8fHwxNzYzNDY3ODQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "AI chat"
+    },
+    {
+      "id": "how-it-works-3",
+      "description": "People cheering at an outdoor event.",
+      "imageUrl": "https://images.unsplash.com/photo-1634361178167-77c8f459103e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvdXRkb29yJTIwZXZlbnR8ZW58MHx8fHwxNzYzNTQ2NTY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "outdoor event"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Profile picture of a testimonial provider.",
+      "imageUrl": "https://images.unsplash.com/photo-1711645169736-53327e726205?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzYzNTI1MTc3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman smiling"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Profile picture of another testimonial provider.",
+      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM0OTU3MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Profile picture of a third testimonial provider.",
+      "imageUrl": "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwZXJzb24lMjBzbWlsaW5nfGVufDB8fHx8MTc2MzUyMTcyOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person smiling"
+    },
+    {
+      "id": "cta-background",
+      "description": "A beautiful sunset over a mountain range.",
+      "imageUrl": "https://images.unsplash.com/photo-1490682143684-14369e18dce8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb3VudGFpbiUyMHN1bnNldHxlbnwwfHx8fDE3NjM0OTA2NTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mountain sunset"
+    },
+    {
+      "id": "about-story",
+      "description": "A group of diverse people hiking together.",
+      "imageUrl": "https://images.unsplash.com/photo-1626116641224-958635627c62?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkaXZlcnNlJTIwZ3JvdXAlMjBoaWtpbmd8ZW58MHx8fHwxNzYzNTQ2NTY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "diverse group hiking"
+    },
+    {
+      "id": "team-member-1",
+      "description": "Professional headshot of a team member.",
+      "imageUrl": "https://images.unsplash.com/photo-1701096374092-bb70915fdc5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwwfHx8fDE3NjM0NTQ3MDV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional headshot"
+    },
+    {
+      "id": "team-member-2",
+      "description": "Professional headshot of a team member.",
+      "imageUrl": "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b21hbiUyMHByb2Zlc3Npb25hbHxlbnwwfHx8fDE3NjM0NzkwNzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman professional"
+    },
+    {
+      "id": "team-member-3",
+      "description": "Professional headshot of a team member.",
+      "imageUrl": "https://images.unsplash.com/photo-1656338997878-279d71d48f6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtYW4lMjBzbWlsaW5nfGVufDB8fHx8MTc2MzQ2OTU4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man smiling"
+    },
+    {
+      "id": "team-member-4",
+      "description": "Professional headshot of a team member.",
+      "imageUrl": "https://images.unsplash.com/photo-1573165850883-9b0e18c44bd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9mZXNzaW9uYWwlMjB3b21hbnxlbnwwfHx8fDE3NjM1MzA3NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional woman"
+    },
+    {
+      "id": "partner-success",
+      "description": "Corporate team participating in an outdoor challenge.",
+      "imageUrl": "https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20%281%20of%201%29-5.jpg?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb3Jwb3JhdGUlMjB0ZWFtfGVufDB8fHx8MTc2MzQ5MjA1OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "corporate team"
+    },
+    {
+      "id": "explore-map",
+      "description": "Placeholder image of a stylized world map.",
+      "imageUrl": "https://images.unsplash.com/photo-1712150177656-b3c0bd50eb25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b3JsZCUyMG1hcHxlbnwwfHx8fDE3NjM1MTg1NzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "world map"
+    },
+    {
+      "id": "sdg-main",
+      "description": "Image representing global sustainability and nature.",
+      "imageUrl": "https://images.unsplash.com/photo-1699530508445-97c63d6fbe12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxuYXR1cmUlMjBzdXN0YWluYWJpbGl0eXxlbnwwfHx8fDE3NjM1NDY1Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "nature sustainability"
+    },
+    {
+      "id": "pricing-1",
+      "description": "A crowd of people at an outdoor festival.",
+      "imageUrl": "https://images.unsplash.com/photo-1748958342433-62a2e656ba9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxldmVudCUyMGNyb3dkfGVufDB8fHx8MTc2MzUzMDQ0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event crowd"
+    },
+    {
+      "id": "pricing-2",
+      "description": "A person using a laptop to plan an event.",
+      "imageUrl": "https://images.unsplash.com/photo-1511578314322-379afb476865?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxldmVudCUyMHBsYW5uaW5nfGVufDB8fHx8MTc2MzU5Njc1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "event planning"
+    }
+  ]
 }
