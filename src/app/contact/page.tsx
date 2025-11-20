@@ -1,5 +1,14 @@
 import { ContactForm } from "@/components/contact/ContactForm";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Suspense } from "react";
+
+function ContactFormWithParams() {
+    return (
+        <Suspense fallback={<div>Loading form...</div>}>
+            <ContactForm />
+        </Suspense>
+    )
+}
 
 export default function ContactPage() {
     return (
@@ -14,7 +23,7 @@ export default function ContactPage() {
 
                 <div className="grid md:grid-cols-5 gap-12">
                     <div className="md:col-span-3">
-                         <ContactForm />
+                         <ContactFormWithParams />
                     </div>
                     <div className="md:col-span-2 space-y-8">
                         <div>

@@ -2,11 +2,77 @@
 import type { Event, Testimonial, TeamMember, Partner } from "@/lib/types";
 
 export const partners: Partner[] = [
-    { name: "UNHCR", avatarUrl: "https://picsum.photos/seed/unhcr/48/48" },
-    { name: "Absa Bank", avatarUrl: "https://picsum.photos/seed/absa/48/48", isVerified: true },
-    { name: "Safaricom", avatarUrl: "https://picsum.photos/seed/safaricom/48/48", isVerified: true },
-    { name: "Kenya Forest Service", avatarUrl: "https://picsum.photos/seed/kfs/48/48" },
-    { name: "Greenpeace", avatarUrl: "https://picsum.photos/seed/greenpeace/48/48" }
+    { 
+        name: "UNHCR", 
+        username: "unhcr", 
+        avatarUrl: "https://picsum.photos/seed/unhcr/200", 
+        accountType: 'NGO', 
+        dateJoined: '2023-01-15',
+        followerCount: 125000,
+        followingCount: 5,
+    },
+    { 
+        name: "Absa Bank", 
+        username: "absabank", 
+        avatarUrl: "https://picsum.photos/seed/absa/200", 
+        isVerified: true, 
+        verificationType: 'gold', 
+        accountType: 'Corporate',
+        dateJoined: '2022-11-20',
+        followerCount: 500000,
+        followingCount: 120
+    },
+    { 
+        name: "Safaricom", 
+        username: "safaricom", 
+        avatarUrl: "https://picsum.photos/seed/safaricom/200", 
+        isVerified: true, 
+        verificationType: 'gold', 
+        accountType: 'Corporate',
+        dateJoined: '2022-09-10',
+        followerCount: 1200000,
+        followingCount: 30
+    },
+    { 
+        name: "Kenya Forest Service", 
+        username: "kfs", 
+        avatarUrl: "https://picsum.photos/seed/kfs/200",
+        accountType: 'Non-profit',
+        dateJoined: '2023-03-22',
+        followerCount: 78000,
+        followingCount: 2
+    },
+    { 
+        name: "Greenpeace", 
+        username: "greenpeace", 
+        avatarUrl: "https://picsum.photos/seed/greenpeace/200",
+        accountType: 'NGO',
+        dateJoined: '2023-02-01',
+        followerCount: 980000,
+        followingCount: 10
+    },
+    {
+        name: "Nairobi Hikers Club",
+        username: "nairobihikers",
+        avatarUrl: "https://picsum.photos/seed/nairobihikers/200",
+        isVerified: true,
+        verificationType: 'blue',
+        accountType: 'Community',
+        dateJoined: '2023-05-18',
+        followerCount: 25000,
+        followingCount: 150
+    },
+    {
+        name: "Adventure Kenya",
+        username: "adventurekenya",
+        avatarUrl: "https://picsum.photos/seed/adventurekenya/200",
+        isVerified: true,
+        verificationType: 'blue',
+        accountType: 'Community',
+        dateJoined: '2023-04-11',
+        followerCount: 45000,
+        followingCount: 200
+    }
 ]
 
 export const events: Event[] = [
@@ -21,6 +87,9 @@ export const events: Event[] = [
     distance: 12,
     snacks: true,
     eventType: "Community",
+    partners: [
+        partners.find(p => p.name === "Nairobi Hikers Club")!,
+    ]
   },
   {
     id: "2",
@@ -64,6 +133,9 @@ export const events: Event[] = [
     difficulty: "Beginner",
     snacks: false,
     eventType: "Community",
+     partners: [
+        partners.find(p => p.name === "Adventure Kenya")!,
+    ]
   },
   {
     id: "5",
@@ -129,42 +201,42 @@ export const testimonials: Testimonial[] = [
     name: "Wanjiku N.",
     role: "Avid Hiker",
     quote: "TrekTribe helped me find a community of fellow nature lovers here in Kenya. The AI search made it so easy to find the perfect weekend hike in the Ngong Hills!",
-    image: { id: "testimonial-1", url: "https://picsum.photos/seed/person1/100/100", hint: "woman smiling" },
+    image: { id: "testimonial-1", url: "https://picsum.photos/seed/Wanjiku/200", hint: "woman smiling" },
   },
   {
     id: "2",
     name: "David O.",
     role: "Corporate Organizer",
     quote: "Organizing our company's wellness event at Karura Forest through TrekTribe was seamless. It was a fantastic team-building experience that aligned with our CSR goals.",
-    image: { id: "testimonial-2", url: "https://picsum.photos/seed/person2/100/100", hint: "man portrait" },
+    image: { id: "testimonial-2", url: "https://picsum.photos/seed/David/200", hint: "man portrait" },
   },
   {
     id: "3",
     name: "Fatuma A.",
     role: "Marathon Runner",
     quote: "I've discovered so many meaningful marathons in Nairobi that support great causes. TrekTribe is more than just an event platform; it's a movement for positive change.",
-    image: { id: "testimonial-3", url: "https://picsum.photos/seed/person3/100/100", hint: "person smiling" },
+    image: { id: "testimonial-3", url: "https://picsum.photos/seed/Fatuma/200", hint: "person smiling" },
   },
   {
     id: "4",
     name: "Omar Raza",
     role: "CEO",
     quote: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
-    image: { id: "testimonial-4", url: "https://picsum.photos/seed/person4/100/100", hint: "man portrait" },
+    image: { id: "testimonial-4", url: "https://picsum.photos/seed/Omar/200", hint: "man portrait" },
   },
   {
     id: "5",
     name: "Zainab Hussain",
     role: "Project Manager",
     quote: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
-    image: { id: "testimonial-5", url: "https://picsum.photos/seed/person5/100/100", hint: "woman portrait" },
+    image: { id: "testimonial-5", url: "https://picsum.photos/seed/Zainab/200", hint: "woman portrait" },
   },
   {
     id: "6",
     name: "Aliza Khan",
     role: "Business Analyst",
     quote: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
-    image: { id: "testimonial-6", url: "https://picsum.photos/seed/person6/100/100", hint: "woman portrait" },
+    image: { id: "testimonial-6", url: "https://picsum.photos/seed/Aliza/200", hint: "woman portrait" },
   },
 ];
 
@@ -174,7 +246,7 @@ export const teamMembers: TeamMember[] = [
         name: "Jomo Kenyatta",
         role: "Founder & CEO",
         bio: "An avid mountaineer and environmentalist, Jomo founded TrekTribe to connect Kenyans with nature and each other, fostering a national community dedicated to adventure and impact.",
-        image: { id: "team-member-1", url: "https://picsum.photos/seed/team1/400/400", hint: "professional headshot" },
+        image: { id: "team-member-1", url: "https://picsum.photos/seed/Jomo/200", hint: "professional headshot" },
         department: "Leadership",
     },
     {
@@ -182,7 +254,7 @@ export const teamMembers: TeamMember[] = [
         name: "Achieng Otieno",
         role: "Head of Technology",
         bio: "With a passion for AI and user experience, Achieng leads the development of TrekTribe's innovative platform, ensuring a seamless and personalized journey for every user in Kenya.",
-        image: { id: "team-member-2", url: "https://picsum.photos/seed/team2/400/400", hint: "woman professional" },
+        image: { id: "team-member-2", url: "https://picsum.photos/seed/Achieng/200", hint: "woman professional" },
         department: "Engineering",
     },
     {
@@ -190,7 +262,7 @@ export const teamMembers: TeamMember[] = [
         name: "Maina Kamau",
         role: "Partnerships Director",
         bio: "Maina builds bridges between TrekTribe and Kenyan organizations that share our vision. He is dedicated to creating synergistic partnerships that amplify our collective impact.",
-        image: { id: "team-member-3", url: "https://picsum.photos/seed/team3/400/400", hint: "man smiling" },
+        image: { id: "team-member-3", url: "https://picsum.photos/seed/Maina/200", hint: "man smiling" },
         department: "Community",
     },
     {
@@ -198,7 +270,8 @@ export const teamMembers: TeamMember[] = [
         name: "Pendo Mwangi",
         role: "Community Manager",
         bio: "Pendo is the heart of the TrekTribe community in Kenya. She engages with users, supports event organizers, and ensures everyone feels welcome and inspired on their adventures.",
-        image: { id: "team-member-4", url: "https://picsum.photos/seed/team4/400/400", hint: "professional woman" },
+        image: { id: "team-member-4", url: "https://picsum.photos/seed/Pendo/200", hint: "professional woman" },
         department: "Community",
     },
 ]
+

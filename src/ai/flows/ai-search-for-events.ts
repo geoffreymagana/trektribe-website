@@ -12,11 +12,20 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import { events } from '@/lib/data';
+import type { Partner } from '@/lib/types';
 
 const AISearchForEventsInputSchema = z.object({
   query: z.string().describe('The user query for searching events.'),
 });
 export type AISearchForEventsInput = z.infer<typeof AISearchForEventsInputSchema>;
+
+const PartnerSchema = z.object({
+    name: z.string(),
+    avatarUrl: z.string(),
+    isVerified: z.boolean().optional(),
+    username: z.string().optional(),
+});
 
 const EventSchema = z.object({
   title: z.string(),
@@ -26,6 +35,7 @@ const EventSchema = z.object({
   category: z.enum(["Hike", "Marathon", "Cycling", "Mountain Climb", "Impact"]),
   difficulty: z.enum(["Beginner", "Intermediate", "Advanced"]),
   cause: z.string().optional(),
+  partners: z.array(PartnerSchema).optional().describe("A list of partners hosting the event."),
 });
 
 const AISearchForEventsOutputSchema = z.object({
@@ -44,7 +54,12 @@ const prompt = ai.definePrompt({
   name: 'aiSearchForEventsPrompt',
   input: {schema: AISearchForEventsInputSchema},
   output: {schema: AISearchForEventsOutputSchema},
-  prompt: `You are an AI event search assistant for an app called TrekTribe. The user will provide a query and you will return a list of event objects that match the query. The event description should be concise. Each event should have a title, description, date, location, category, and difficulty.
+  prompt: `You are an AI event search assistant for an app called TrekTribe. The user will provide a query and you will return a list of event objects that match the query. The event description should be concise. Each event should have a title, description, date, location, category, difficulty and any associated partners.
+
+Use the following list of existing events as a reference for the kind of events available. Base your response on these events if they match the query.
+
+Existing Events:
+${JSON.stringify(events, null, 2)}
 
 User Query: {{{query}}}`,
 });

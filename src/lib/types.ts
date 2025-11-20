@@ -1,8 +1,15 @@
 
+
 export type Partner = {
   name: string;
+  username: string;
   avatarUrl: string;
   isVerified?: boolean;
+  verificationType?: 'gold' | 'blue';
+  followerCount?: number;
+  followingCount?: number;
+  accountType?: 'Corporate' | 'NGO' | 'Community' | 'Non-profit';
+  dateJoined?: string;
 };
 
 export type Event = {
@@ -48,3 +55,4 @@ export type TeamMember = {
   };
   department: "Leadership" | "Engineering" | "Community";
 };
+

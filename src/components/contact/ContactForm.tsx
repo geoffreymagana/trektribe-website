@@ -3,6 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,7 +17,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useToast } from "@/hooks/use-toast";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
@@ -30,7 +30,6 @@ const formSchema = z.object({
 type ContactFormValues = z.infer<typeof formSchema>;
 
 export function ContactForm() {
-  const { toast } = useToast();
   const searchParams = useSearchParams();
   const subject = searchParams.get('subject');
 
@@ -52,9 +51,8 @@ export function ContactForm() {
 
   function onSubmit(values: ContactFormValues) {
     console.log(values);
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. We'll get back to you shortly.",
+    toast.success("Message Sent!", {
+        description: "Thanks for reaching out. We'll get back to you shortly.",
     });
     form.reset();
   }

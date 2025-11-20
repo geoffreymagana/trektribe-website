@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useActionState, useFormStatus, useTransition } from "react";
@@ -6,13 +7,16 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { ArrowUp, Paperclip, Square, X, StopCircle, Mic, Globe, Bot, Calendar, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { searchEventsAction, SearchState } from "@/app/actions";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import type { Partner } from "@/lib/types";
 
 // Utility function for className merging
 const cn = (...classes: (string | undefined | null | false)[]) => classes.filter(Boolean).join(" ");
+const slugify = (text: string) => text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+
 
 // Textarea Component
 interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -400,9 +404,48 @@ const PromptInputAction: React.FC<PromptInputActionProps> = ({
   );
 };
 
+const HostedBy = ({ partners }: { partners: Partner[] }) => {
+    if (!partners || partners.length === 0) {
+        return null;
+    }
+
+    const handleLinkClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+    }
+
+    return (
+        <div className="flex items-center gap-2 mt-2">
+            <div className="flex -space-x-2">
+                {partners.slice(0, 2).map(p => (
+                     <Link key={p.name} href={`/org/${slugify(p.name)}`} className="hover:z-10" onClick={handleLinkClick}>
+                        <Image src={p.avatarUrl} alt={p.name} width={20} height={20} className="rounded-full border-2 border-background"/>
+                    </Link>
+                ))}
+            </div>
+            <div className="text-xs text-muted-foreground font-semibold truncate">
+                Hosted by {partners.map((p, i) => {
+                  const verificationBadge = p.isVerified ? (
+                    p.verificationType === 'gold' 
+                        ? 'https://img.icons8.com/color/96/verified-badge.png' 
+                        : 'https://img.icons8.com/fluency/96/instagram-verification-badge.png'
+                  ) : null;
+                  return (
+                    <span key={p.name}>
+                      <Link href={`/org/${slugify(p.name)}`} className="hover:underline text-foreground" onClick={handleLinkClick}>
+                          {p.name}
+                      </Link>
+                      {verificationBadge && <img src={verificationBadge} alt="verification badge" className="w-3 h-3 inline-block ml-0.5"/>}
+                      {i < partners!.length - 1 ? ' & ' : ''}
+                    </span>
+                  )
+                })}
+            </div>
+        </div>
+    )
+}
+
 // Main PromptInputBox Component
 export const PromptInputBox = React.forwardRef((props: {}, ref: React.Ref<HTMLDivElement>) => {
-  const { toast } = useToast();
   const [state, formAction] = useActionState(searchEventsAction, { message: "" });
   const [isPending, startTransition] = useTransition();
 
@@ -458,14 +501,11 @@ export const PromptInputBox = React.forwardRef((props: {}, ref: React.Ref<HTMLDi
 
   React.useEffect(() => {
     if (state.message && state.fieldErrors) {
-      toast({
-        title: "Validation Error",
+      toast.error("Validation Error", {
         description: state.message,
-        variant: "destructive",
       });
     } else if (state.message && !state.events) {
-      toast({
-        title: "Search Update",
+       toast.info("Search Update", {
         description: state.message,
       });
     }
@@ -475,17 +515,17 @@ export const PromptInputBox = React.forwardRef((props: {}, ref: React.Ref<HTMLDi
       setFiles([]);
       setFilePreviews({});
     }
-  }, [state, isPending, toast]);
+  }, [state, isPending]);
   
   const isImageFile = (file: File) => file.type.startsWith("image/");
 
   const processFile = (file: File) => {
     if (!isImageFile(file)) {
-      toast({ title: "Only image files are allowed", variant: "destructive" });
+      toast.error("Only image files are allowed");
       return;
     }
     if (file.size > 10 * 1024 * 1024) {
-      toast({ title: "File too large (max 10MB)", variant: "destructive" });
+      toast.error("File too large (max 10MB)");
       return;
     }
     setFiles([file]);
@@ -510,7 +550,7 @@ export const PromptInputBox = React.forwardRef((props: {}, ref: React.Ref<HTMLDi
     const droppedFiles = Array.from(e.dataTransfer.files);
     const imageFiles = droppedFiles.filter((file) => isImageFile(file));
     if (imageFiles.length > 0) processFile(imageFiles[0]);
-  }, [processFile]);
+  }, []);
 
   const handleRemoveFile = (index: number) => {
     setFiles([]);
@@ -532,7 +572,7 @@ export const PromptInputBox = React.forwardRef((props: {}, ref: React.Ref<HTMLDi
         }
       }
     }
-  }, [processFile]);
+  }, []);
 
   React.useEffect(() => {
     const promptElement = (ref as React.RefObject<HTMLDivElement>)?.current;
@@ -571,19 +611,20 @@ export const PromptInputBox = React.forwardRef((props: {}, ref: React.Ref<HTMLDi
           <div className="w-full mb-8 space-y-4">
             <h3 className="text-lg font-semibold text-center">{state.message}</h3>
             {state.events.map((event, index) => (
-              <Link key={index} href={`/events/${event.title.toLowerCase().replace(/\s/g, '-')}`} className="block w-full group">
-                <div className="bg-card p-4 rounded-lg flex items-start gap-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 w-full">
+              <Link href={`/events/${slugify(event.title)}`} key={index} className="block w-full group">
+                <div className="bg-card p-4 rounded-lg flex items-start gap-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <div className="relative h-32 w-32 rounded-md overflow-hidden flex-shrink-0">
-                    <Image
-                      src={`https://picsum.photos/seed/${event.title.replace(/\s/g, '-')}/200/200`}
-                      alt={event.title}
-                      fill
-                      className="object-cover"
-                      data-ai-hint={event.category.toLowerCase()}
-                    />
+                      <Image
+                        src={`https://picsum.photos/seed/${event.title.replace(/\s/g, '-')}/200/200`}
+                        alt={event.title}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={event.category.toLowerCase()}
+                      />
                   </div>
                   <div className="flex-grow">
                     <h4 className="text-lg font-bold group-hover:text-primary transition-colors">{event.title}</h4>
+                    {event.partners && event.partners.length > 0 && <HostedBy partners={event.partners as Partner[]} />}
                     <p className="text-sm text-muted-foreground mt-1">{event.description}</p>
                     <div className="text-sm text-muted-foreground space-y-2 mt-2">
                         <div className="flex items-center gap-2">

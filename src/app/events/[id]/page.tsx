@@ -66,15 +66,22 @@ export default function EventDetailsPage({ params }: { params: { id: string } })
                     ))}
                 </div>
                 <div className="text-sm text-muted-foreground font-semibold">
-                    Hosted by {displayEvent.partners.map((p, i) => (
-                      <span key={p.name}>
-                        <Link href={`/org/${slugify(p.name)}`} className="hover:underline text-foreground">
-                            {p.name}
-                        </Link>
-                        {p.isVerified && <img src="https://img.icons8.com/fluency/48/instagram-verification-badge.png" alt="verification badge" className="w-4 h-4 inline-block ml-0.5"/>}
-                        {i < displayEvent.partners!.length - 1 ? ' & ' : ''}
-                      </span>
-                    ))}
+                    Hosted by {displayEvent.partners.map((p, i) => {
+                      const verificationBadge = p.isVerified ? (
+                        p.verificationType === 'gold' 
+                            ? 'https://img.icons8.com/color/96/verified-badge.png' 
+                            : 'https://img.icons8.com/fluency/96/instagram-verification-badge.png'
+                      ) : null;
+                      return(
+                        <span key={p.name}>
+                          <Link href={`/org/${slugify(p.name)}`} className="hover:underline text-foreground">
+                              {p.name}
+                          </Link>
+                          {verificationBadge && <img src={verificationBadge} alt="verification badge" className="w-4 h-4 inline-block ml-0.5"/>}
+                          {i < displayEvent.partners!.length - 1 ? ' & ' : ''}
+                        </span>
+                      )
+                    })}
                 </div>
             </div>
           )}
@@ -143,3 +150,4 @@ export default function EventDetailsPage({ params }: { params: { id: string } })
     </div>
   );
 }
+

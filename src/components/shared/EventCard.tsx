@@ -50,15 +50,22 @@ export function EventCard({ event }: EventCardProps) {
                     ))}
                 </div>
                 <div className="text-xs text-muted-foreground font-semibold truncate">
-                    {event.partners.map((p, i) => (
-                      <span key={p.name}>
-                        <Link href={`/org/${slugify(p.name)}`} className="hover:underline">
-                            {p.name}
-                        </Link>
-                        {p.isVerified && <img src="https://img.icons8.com/fluency/48/instagram-verification-badge.png" alt="verification badge" className="w-3 h-3 inline-block ml-0.5"/>}
-                        {i < event.partners!.length - 1 ? ' & ' : ''}
-                      </span>
-                    ))}
+                    Hosted by {event.partners.map((p, i) => {
+                      const verificationBadge = p.isVerified ? (
+                        p.verificationType === 'gold' 
+                            ? 'https://img.icons8.com/color/96/verified-badge.png' 
+                            : 'https://img.icons8.com/fluency/96/instagram-verification-badge.png'
+                      ) : null;
+                      return (
+                        <span key={p.name}>
+                          <Link href={`/org/${slugify(p.name)}`} className="hover:underline text-foreground">
+                              {p.name}
+                          </Link>
+                          {verificationBadge && <img src={verificationBadge} alt="verification badge" className="w-3 h-3 inline-block ml-0.5"/>}
+                          {i < event.partners!.length - 1 ? ' & ' : ''}
+                        </span>
+                      )
+                    })}
                 </div>
             </div>
           )}
